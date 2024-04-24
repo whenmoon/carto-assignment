@@ -49,9 +49,9 @@ export const DataProvider = ({
   return (
     <DataContext.Provider
       value={{
-        zoom,
         retailStoresUI,
         sociodemographicsUI,
+        zoom,
         zoomIn,
         zoomOut,
       }}

@@ -3,6 +3,7 @@ import { getTableData, getTilesetData, getVectorTileLayer } from './utils';
 import { HoverData, RetailStore, Sociodemographic } from './types';
 import { v4 as uuidv4 } from 'uuid';
 import { useDataContext } from '../../context/DataProvider';
+import { INITIAL_VIEW_STATE } from '../../contants';
 
 export const useMap = () => {
   const [dataPointAttribute, setDataPointAttribute] = useState<HoverData>();
@@ -33,8 +34,7 @@ export const useMap = () => {
   ];
 
   const viewState = {
-    latitude: 40.690362,
-    longitude: -97.011084,
+    ...INITIAL_VIEW_STATE,
     zoom,
   };
 

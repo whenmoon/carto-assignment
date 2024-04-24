@@ -1,10 +1,3 @@
-function App() {
+import { AppContainer } from './components/AppContainer';
 
-  return (
-    <div>
-      Carto Assignment
-    </div>
-  )
-}
-
-export default App
+export const App = () => <AppContainer />;

@@ -47,7 +47,7 @@ export const MapsLayout = () => {
   //  onClick: (info, e) => console.log('click', info.object.properties),
   //});
 
-  ////const x = getVectorTileLayer<TableData>(data);
+  ////const x = getVectorTileLayer<RetailStore>(data);
   //const layer2 = new VectorTileLayer({
   //  data: tileSetData,
   //  pointRadiusMinPixels: 4,

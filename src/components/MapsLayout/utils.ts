@@ -33,12 +33,21 @@ export const getTilesetData = (
     ...config,
   });
 
-export const getVectorTileLayer: GetVectorTileLayer = (data, id) =>
+export const getVectorTileLayer: GetVectorTileLayer = (
+  data,
+  id,
+  handleClick,
+  fillColor,
+) =>
   new VectorTileLayer({
     data,
-    pointRadiusMinPixels: 4,
+    pointRadiusMinPixels: 1,
     getLineColor: [0, 0, 0, 400],
-    getFillColor: [138, 74, 50, 50],
+    getFillColor: fillColor,
     lineWidthMinPixels: 1,
     id,
+    pickable: true,
+    onClick: (data) => {
+      handleClick(data.object.properties);
+    },
   });

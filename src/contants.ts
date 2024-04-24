@@ -12,3 +12,28 @@ export const INITIAL_VIEW_STATE = {
   latitude: 40.690362,
   longitude: -97.011084,
 };
+
+export const initialReducerState = {
+  zoom: INITIAL_ZOOM_LEVEL,
+  retailStoresUI: {
+    fillColor: new Uint8Array([235, 52, 189, 50]),
+    pointRadiusMinPixels: 1,
+    lineColor: new Uint8Array([0, 0, 0, 400]),
+    lineWidthMinPixels: 1,
+  },
+  sociodemographicsUI: {
+    fillColor: new Uint8Array([235, 52, 189, 50]),
+    pointRadiusMinPixels: 1,
+    lineColor: new Uint8Array([0, 0, 0, 400]),
+    lineWidthMinPixels: 1,
+  },
+};
+
+export const initialState = {
+  ...initialReducerState,
+  zoomIn: () => { },
+  zoomOut: () => { },
+};
+
+export const ZOOM_IN = 'ZOOM_IN';
+export const ZOOM_OUT = 'ZOOM_OUT';

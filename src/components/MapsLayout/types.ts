@@ -1,6 +1,6 @@
 import { TilejsonResult, VectorTileLayer } from '@deck.gl/carto';
 
-export type TableData = {
+export type RetailStore = {
   cartodb_id: number;
   storetype: string;
   address: string;
@@ -12,11 +12,20 @@ export type TableData = {
   size_m2: number;
 };
 
+export type Sociodemographic = {
+  total_pop: number;
+  households: number;
+  median_income: number;
+};
+
 export type GetVectorTileLayer = <T>(
   data: Promise<TilejsonResult>,
   id: string,
+  handleClick: (info: T) => void,
+  fillColor: Uint8Array,
 ) => VectorTileLayer<T>;
 
 export type HoverData = {
-  tableData: TableData;
+  retailStore: RetailStore;
+  sociodemographic: Sociodemographic;
 };

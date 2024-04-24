@@ -15,10 +15,12 @@ export const Drawer = styled(MUIDrawer)`
     border-radius: 15px;
     border: 1px solid #000;
     width: 200px;
+    height: 80%;
   }
 `;
 
 export const ToggleButton = styled(Button)`
+  position: absolute;
   bottom: 0;
   left: 0;
   margin: 20px;

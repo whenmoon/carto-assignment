@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as S from './styles';
+import { ColorPicker } from 'primereact/colorpicker';
 
 export const SideBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -10,20 +11,25 @@ export const SideBar = () => {
 
   return (
     <>
-      {!isDrawerOpen && (
-        <S.ToggleButton onClick={toggleSideBar}>Open drawer</S.ToggleButton>
-      )}
       <S.Drawer
         open={isDrawerOpen}
         onClose={toggleSideBar}
         hideBackdrop
         transitionDuration={500}
+        variant="persistent"
       >
         <S.DrawerContent>
-          Test Text
-          <S.ToggleButton onClick={toggleSideBar}>Close drawer</S.ToggleButton>
+          <ColorPicker
+            format="rgb"
+            value={{ r: 100, g: 102, b: 241 }}
+            onChange={(e) => console.log(e.value)}
+            style={{ width: 100, height: 100, zIndex: 19999 }}
+          />
         </S.DrawerContent>
       </S.Drawer>
+      <S.ToggleButton onClick={toggleSideBar}>
+        {isDrawerOpen ? 'Close drawer' : 'Open Draw'}
+      </S.ToggleButton>
     </>
   );
 };

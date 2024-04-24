@@ -3,7 +3,6 @@ import * as S from './styles';
 
 export const SideBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  console.log('isDrawerOpen', isDrawerOpen);
 
   const toggleSideBar = () => {
     setIsDrawerOpen((prevState) => !prevState);
@@ -21,7 +20,6 @@ export const SideBar = () => {
         transitionDuration={500}
       >
         <S.DrawerContent>
-          {/*{DrawerList}*/}
           Test Text
           <S.ToggleButton onClick={toggleSideBar}>Close drawer</S.ToggleButton>
         </S.DrawerContent>

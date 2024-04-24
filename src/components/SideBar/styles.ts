@@ -23,4 +23,5 @@ export const ToggleButton = styled(Button)`
   left: 0;
   margin: 20px;
   align-self: flex-end;
+  z-index: 10000;
 `;

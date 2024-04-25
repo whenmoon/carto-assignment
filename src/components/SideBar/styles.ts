@@ -3,19 +3,20 @@ import { Button } from '../Button';
 
 export const DrawerContent = styled('div')`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #000;
+  flex-direction: column;
+  /*justify-content: center;
+  align-items: center;*/
+  /*border: 1px solid #000;*/
   height: 100%;
+  padding: 10px;
 `;
 
 export const Drawer = styled(MUIDrawer)`
   .MuiDrawer-paper {
-    border-radius: 15px;
-    border: 1px solid #000;
-    width: 200px;
-    height: 80%;
+    border-radius: 8px;
+    width: 300px;
+    height: 90%;
+    background-color: rgba(212, 254, 255, 0.2);
   }
 `;
 

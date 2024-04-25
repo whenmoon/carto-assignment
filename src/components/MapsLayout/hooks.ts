@@ -33,7 +33,11 @@ export const useMap: UseMap = () => {
       handleClick,
       ...retailStores,
     }),
-  ];
+  ].filter(
+    (layer) =>
+      (layer.id === RETAIL_STORES_LAYER_ID && retailStores.visible) ||
+      (layer.id === SOCIODEMOGRAPHIC_LAYER_ID && sociodemographics.visible),
+  );
 
   const viewState = {
     ...INITIAL_VIEW_STATE,

@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import * as S from './styles';
-import { ColorPicker } from 'primereact/colorpicker';
 import { LayerEditor } from '../LayerEditor';
+import {
+  RETAIL_STORES_LAYER_ID,
+  SOCIODEMOGRAPHIC_LAYER_ID,
+} from '../../contants';
 
 export const SideBar = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(true);
 
   const toggleSideBar = () => {
     setIsDrawerOpen((prevState) => !prevState);
@@ -20,13 +23,12 @@ export const SideBar = () => {
         variant="persistent"
       >
         <S.DrawerContent>
-          <LayerEditor />
-          {/*<ColorPicker
-            format="rgb"
-            value={{ r: 100, g: 102, b: 241 }}
-            onChange={(e) => console.log(e.value)}
-            style={{ width: 100, height: 100, zIndex: 19999 }}
-          />*/}
+          <LayerEditor
+            layers={[
+              { title: 'Retail Stores', id: RETAIL_STORES_LAYER_ID },
+              { title: 'Sociodemographics', id: SOCIODEMOGRAPHIC_LAYER_ID },
+            ]}
+          />
         </S.DrawerContent>
       </S.Drawer>
       <S.ToggleButton onClick={toggleSideBar}>

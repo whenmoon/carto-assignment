@@ -11,7 +11,7 @@ export const MapsLayout = () => {
   return (
     <S.MapsContainer>
       <DeckGL layers={layers} initialViewState={viewState} controller>
-        <Map mapStyle={BASEMAP.DARK_MATTER} />
+        <Map mapStyle={BASEMAP.DARK_MATTER} minZoom={1} maxZoom={15} />
         {dataPoint && (
           <Tooltip
             title="Delete"

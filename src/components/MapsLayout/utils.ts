@@ -9,7 +9,12 @@ import {
   RETAIL_STORES_TABLE,
   SOCIODEMOGRAPHIC_TILESET,
 } from '../../contants';
-import { GetVectorTileLayer, RetailStore, Sociodemographic } from './types';
+import {
+  DataPoint,
+  GetVectorTileLayer,
+  RetailStore,
+  Sociodemographic,
+} from './types';
 
 const config = {
   accessToken: import.meta.env.VITE_CARTO_API_TOKEN,
@@ -47,7 +52,7 @@ const getFillColor = (
   return layerFillColor;
 };
 
-export const getVectorTileLayer: GetVectorTileLayer = (
+export const getVectorTileLayer: GetVectorTileLayer = ({
   data,
   id,
   handleClick,
@@ -55,7 +60,7 @@ export const getVectorTileLayer: GetVectorTileLayer = (
   focusedColumnFillColor,
   lineWidthMinPixels,
   pointRadiusMinPixels,
-) =>
+}) =>
   new VectorTileLayer({
     data,
     pointRadiusMinPixels,
@@ -66,7 +71,12 @@ export const getVectorTileLayer: GetVectorTileLayer = (
     id,
     pickable: true,
     onClick: (data) => {
-      handleClick(data.object.properties);
+      const {
+        x,
+        y,
+        object: { properties },
+      } = data;
+      handleClick({ x, y, properties } as DataPoint);
     },
     updateTriggers: {
       getFillColor: [layerFillColor, focusedColumnFillColor],

@@ -11,11 +11,11 @@ export const RETAIL_STORES_FOCUSED_COLUMN = 'revenue';
 export const SOCIODEMOGRAPHIC_LAYER_ID = 'sociodemographics';
 export const SOCIODEMOGRAPHIC_FOCUSED_COLUMN = 'total_pop';
 
-export const INITIAL_ZOOM_LEVEL = 3;
+export const INITIAL_ZOOM_LEVEL = 3.5;
 
 export const INITIAL_VIEW_STATE = {
-  latitude: 40.690362,
-  longitude: -97.011084,
+  latitude: 37.598462,
+  longitude: -99.187133,
 };
 
 export const ZOOM_IN = 'ZOOM_IN';

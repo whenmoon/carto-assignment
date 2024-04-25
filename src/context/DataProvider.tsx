@@ -10,14 +10,16 @@ import { INITIAL_ZOOM_LEVEL, ZOOM_IN, ZOOM_OUT } from '../contants';
 
 export const initialReducerState = {
   zoom: INITIAL_ZOOM_LEVEL,
-  retailStoresUI: {
+  retailStores: {
+    visible: true,
     layerFillColor: new Uint8Array([0, 221, 255]),
     focusedColumnFillColor: new Uint8Array([242, 255, 0]),
-    pointRadiusMinPixels: 1,
+    pointRadiusMinPixels: 2,
     lineColor: new Uint8Array([0, 0, 0, 400]),
     lineWidthMinPixels: 1,
   },
-  sociodemographicsUI: {
+  sociodemographics: {
+    visible: false,
     layerFillColor: new Uint8Array([255, 0, 217]),
     focusedColumnFillColor: new Uint8Array([0, 191, 255]),
     pointRadiusMinPixels: 1,
@@ -63,13 +65,13 @@ export const DataProvider = ({
     dispatch({ type: ZOOM_OUT, value });
   };
 
-  const { zoom, retailStoresUI, sociodemographicsUI } = data;
+  const { zoom, retailStores, sociodemographics } = data;
 
   return (
     <DataContext.Provider
       value={{
-        retailStoresUI,
-        sociodemographicsUI,
+        retailStores,
+        sociodemographics,
         zoom,
         zoomIn,
         zoomOut,

@@ -1,4 +1,5 @@
 import { TilejsonResult, VectorTileLayer } from '@deck.gl/carto';
+import { UIParameters } from '../../context/types';
 
 export type RetailStore = {
   cartodb_id: number;
@@ -19,20 +20,36 @@ export type Sociodemographic = {
   income_per_capita: number;
 };
 
+export type DataPoint = {
+  x: number;
+  y: number;
+  properties: RetailStore | Sociodemographic;
+};
+
 export type GetFillColor<T> = (data: T) => Uint8Array;
 
 export type GetVectorTileLayer = <T extends RetailStore | Sociodemographic>(
-  data: Promise<TilejsonResult>,
-  id: string,
-  handleClick: (data: T) => void,
-  layerFillColor: Uint8Array,
-  focusedColumnFillColor: Uint8Array,
-  lineWidthMinPixels: number,
-  pointRadiusMinPixels: number,
-  getFillColor?: GetFillColor<T>,
+  args: Omit<UIParameters, 'visible'> & {
+    data: Promise<TilejsonResult>;
+    id: string;
+    handleClick: (data: DataPoint) => void;
+    getFillColor?: GetFillColor<T>;
+  },
 ) => VectorTileLayer<T>;
 
 export type HoverData = {
   retailStore: RetailStore;
   sociodemographic: Sociodemographic;
+};
+
+type ViewState = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+};
+
+export type UseMap = () => {
+  dataPoint: DataPoint | undefined;
+  layers: (VectorTileLayer<Sociodemographic> | VectorTileLayer<RetailStore>)[];
+  viewState: ViewState;
 };

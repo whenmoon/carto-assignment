@@ -4,8 +4,8 @@ export type UpdateZoom = (value: number) => void;
 
 export type ReducerState = {
   zoom: number;
-  retailStoresUI: UIParameters;
-  sociodemographicsUI: UIParameters;
+  retailStores: UIParameters;
+  sociodemographics: UIParameters;
 };
 
 export type InitialState = ReducerState & {
@@ -18,6 +18,7 @@ export type Action =
   | { type: typeof ZOOM_OUT; value: number };
 
 export type UIParameters = {
+  visible: boolean;
   layerFillColor: Uint8Array;
   focusedColumnFillColor: Uint8Array;
   lineColor: Uint8Array;

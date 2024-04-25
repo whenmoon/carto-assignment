@@ -13,7 +13,7 @@ export type LayerId =
   | typeof RETAIL_STORES_LAYER_ID
   | typeof SOCIODEMOGRAPHIC_LAYER_ID;
 
-export type UpdateZoom = (value: number) => void;
+export type UpdateZoom = () => void;
 export type ToggleLayer = (layerId: LayerId) => void;
 
 export type UpdateColor = (value: Uint8Array, layerId: LayerId) => void;
@@ -42,8 +42,8 @@ type UpdateFillColorAction = {
 };
 
 export type Action =
-  | { type: typeof ZOOM_IN; value: number }
-  | { type: typeof ZOOM_OUT; value: number }
+  | { type: typeof ZOOM_IN }
+  | { type: typeof ZOOM_OUT }
   | { type: typeof TOGGLE_LAYER; value: LayerId }
   | UpdateFillColorAction
   | { type: typeof UPDATE_OUTLINE_SIZE; value: number; layerId: LayerId }

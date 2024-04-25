@@ -32,7 +32,7 @@ export const SideBar = () => {
         </S.DrawerContent>
       </S.Drawer>
       <S.ToggleButton onClick={toggleSideBar}>
-        {isDrawerOpen ? 'Close drawer' : 'Open Draw'}
+        {isDrawerOpen ? 'Close Editor' : 'Open Editor'}
       </S.ToggleButton>
     </>
   );

@@ -18,9 +18,9 @@ export const dataReducer = (
 ): ReducerState => {
   switch (action.type) {
     case ZOOM_IN:
-      return { ...state, zoom: state.zoom + action.value };
+      return { ...state, zoom: state.zoom + 0.5 };
     case ZOOM_OUT:
-      return { ...state, zoom: state.zoom - action.value };
+      return { ...state, zoom: state.zoom - 0.5 };
     case TOGGLE_LAYER:
       return {
         ...state,

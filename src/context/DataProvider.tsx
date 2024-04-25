@@ -71,15 +71,15 @@ export const DataProvider = ({
     initialReducerState,
   );
 
-  const zoomIn: UpdateZoom = (value) => {
-    if (data.zoom >= 15) {
-      dispatch({ type: ZOOM_IN, value });
+  const zoomIn: UpdateZoom = () => {
+    if (data.zoom < 10) {
+      dispatch({ type: ZOOM_IN });
     }
   };
 
-  const zoomOut: UpdateZoom = (value) => {
-    if (data.zoom <= 1) {
-      dispatch({ type: ZOOM_OUT, value });
+  const zoomOut: UpdateZoom = () => {
+    if (data.zoom > 0) {
+      dispatch({ type: ZOOM_OUT });
     }
   };
 

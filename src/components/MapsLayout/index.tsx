@@ -4,6 +4,7 @@ import { BASEMAP } from '@deck.gl/carto';
 import * as S from './styles';
 import { useMap } from './hooks';
 import Tooltip from '@mui/material/Tooltip';
+import { ZoomControls } from '../ZoomControls';
 
 export const MapsLayout = () => {
   const { layers, viewState, dataPoint } = useMap();
@@ -11,7 +12,7 @@ export const MapsLayout = () => {
   return (
     <S.MapsContainer>
       <DeckGL layers={layers} initialViewState={viewState} controller>
-        <Map mapStyle={BASEMAP.DARK_MATTER} minZoom={1} maxZoom={15} />
+        <Map mapStyle={BASEMAP.DARK_MATTER} minZoom={0} maxZoom={10} />
         {dataPoint && (
           <Tooltip
             title="Delete"
@@ -27,6 +28,7 @@ export const MapsLayout = () => {
             <div>{JSON.stringify(dataPoint)}</div>
           </Tooltip>
         )}
+        <ZoomControls />
       </DeckGL>
     </S.MapsContainer>
   );

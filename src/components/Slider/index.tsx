@@ -1,16 +1,19 @@
-import { RETAIL_STORES_LAYER_ID } from '../../contants';
 import { useDataContext } from '../../context/DataProvider';
 import * as S from './styles';
-//import { useDataContext } from '../../context/DataProvider';
 import { SliderProps } from './types';
 
-export const Slider = ({ layerId, title }: SliderProps) => {
-  const { updateLineRadius, retailStores, sociodemographics } =
-    useDataContext();
+export const Slider = ({
+  layerId,
+  title,
+  targetValue,
+  updateCallback,
+  maxVal,
+}: SliderProps) => {
+  const uiState = useDataContext();
 
   const handleChange = (_event: Event, value: number | number[]): void => {
     if (typeof value === 'number') {
-      updateLineRadius(value, layerId);
+      updateCallback(value, layerId);
     }
   };
 
@@ -21,13 +24,11 @@ export const Slider = ({ layerId, title }: SliderProps) => {
         aria-label="Slider"
         onChange={handleChange}
         size="small"
-        min={1}
-        max={5}
-        value={
-          layerId === RETAIL_STORES_LAYER_ID
-            ? retailStores.lineWidthMinPixels
-            : sociodemographics.lineWidthMinPixels
-        }
+        min={0.1}
+        max={maxVal}
+        valueLabelDisplay="auto"
+        step={0.1}
+        value={uiState[layerId][targetValue]}
       />
     </>
   );

@@ -60,11 +60,12 @@ export const getVectorTileLayer: GetVectorTileLayer = ({
   focusedColumnFillColor,
   lineWidthMinPixels,
   pointRadiusMinPixels,
+  lineColor,
 }) =>
   new VectorTileLayer({
     data,
     pointRadiusMinPixels,
-    getLineColor: [0, 0, 0, 400],
+    getLineColor: lineColor,
     getFillColor: (data) =>
       getFillColor(data.properties, layerFillColor, focusedColumnFillColor),
     lineWidthMinPixels,

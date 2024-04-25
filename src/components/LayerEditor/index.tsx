@@ -4,8 +4,16 @@ import { LayerEditorProps } from './types';
 import { LayerVisibilityCheckbox } from '../LayerVisibilityCheckbox';
 import { ColorPicker } from '../ColorPicker';
 import { Slider } from '../Slider';
+import { useDataContext } from '../../context/DataProvider';
 
 export const LayerEditor = ({ layers }: LayerEditorProps) => {
+  const {
+    updateFillColor,
+    updateOutlineColor,
+    updateOutineSize,
+    updatePointSize,
+  } = useDataContext();
+
   return (
     <>
       {layers.map((layer) => (
@@ -19,9 +27,30 @@ export const LayerEditor = ({ layers }: LayerEditorProps) => {
           </S.LayerTitle>
           <S.LayerContent>
             <LayerVisibilityCheckbox layerId={layer.id} />
-            <ColorPicker layerId={layer.id} title="Fill color" />
-            <Slider layerId={layer.id} title="Outline Radius" />
-            <ColorPicker layerId={layer.id} title="Ouline Colour" />
+            <ColorPicker
+              layerId={layer.id}
+              title="Fill color"
+              updateCallback={updateFillColor}
+            />
+            <Slider
+              layerId={layer.id}
+              title="Outline Size"
+              targetValue="lineWidthMinPixels"
+              updateCallback={updateOutineSize}
+              maxVal={4}
+            />
+            <ColorPicker
+              layerId={layer.id}
+              title="Outline Colour"
+              updateCallback={updateOutlineColor}
+            />
+            <Slider
+              layerId={layer.id}
+              title="Point Size"
+              targetValue="pointRadiusMinPixels"
+              updateCallback={updatePointSize}
+              maxVal={8}
+            />
           </S.LayerContent>
         </S.LayerEditor>
       ))}

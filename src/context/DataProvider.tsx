@@ -11,6 +11,7 @@ import {
   ReducerState,
   ToggleLayer,
   UpdateFillColor,
+  UpdateLineRadius,
   UpdateZoom,
 } from './types';
 import { INITIAL_ZOOM_LEVEL } from '../contants';
@@ -19,6 +20,7 @@ export const ZOOM_IN = 'ZOOM_IN';
 export const ZOOM_OUT = 'ZOOM_OUT';
 export const TOGGLE_LAYER = 'TOGGLE_LAYER';
 export const UPDATE_FILL_COLOR = 'UPDATE_FILL_COLOR';
+export const UPDATE_LINE_RADIUS = 'UPDATE_LINE_RADIUS';
 
 export const initialReducerState = {
   zoom: INITIAL_ZOOM_LEVEL,
@@ -46,6 +48,7 @@ export const initialState = {
   zoomOut: () => { },
   toggleLayer: () => { },
   updateFillColor: () => { },
+  updateLineRadius: () => { },
 };
 
 const DataContext = createContext<InitialState>(initialState);
@@ -70,6 +73,14 @@ const dataReducer = (state: ReducerState, action: Action): ReducerState => {
         [action.layerId]: {
           ...state[action.layerId],
           layerFillColor: action.value,
+        },
+      };
+    case UPDATE_LINE_RADIUS:
+      return {
+        ...state,
+        [action.layerId]: {
+          ...state[action.layerId],
+          lineWidthMinPixels: action.value,
         },
       };
     default:
@@ -107,6 +118,10 @@ export const DataProvider = ({
     dispatch({ type: UPDATE_FILL_COLOR, value, layerId });
   };
 
+  const updateLineRadius: UpdateLineRadius = (value, layerId) => {
+    dispatch({ type: UPDATE_LINE_RADIUS, value, layerId });
+  };
+
   const { zoom, retailStores, sociodemographics } = data;
 
   return (
@@ -119,6 +134,7 @@ export const DataProvider = ({
         zoomOut,
         toggleLayer,
         updateFillColor,
+        updateLineRadius,
       }}
     >
       {children}

@@ -3,6 +3,7 @@ import * as S from './styles';
 import { LayerEditorProps } from './types';
 import { LayerVisibilityCheckbox } from '../LayerVisibilityCheckbox';
 import { ColorPicker } from '../ColorPicker';
+import { Slider } from '../Slider';
 
 export const LayerEditor = ({ layers }: LayerEditorProps) => {
   return (
@@ -19,6 +20,8 @@ export const LayerEditor = ({ layers }: LayerEditorProps) => {
           <S.LayerContent>
             <LayerVisibilityCheckbox layerId={layer.id} />
             <ColorPicker layerId={layer.id} title="Fill color" />
+            <Slider layerId={layer.id} title="Outline Radius" />
+            <ColorPicker layerId={layer.id} title="Ouline Colour" />
           </S.LayerContent>
         </S.LayerEditor>
       ))}

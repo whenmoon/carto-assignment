@@ -7,7 +7,7 @@ import {
   UPDATE_POINT_SIZE,
   ZOOM_IN,
   ZOOM_OUT,
-} from './DataProvider';
+} from '../contants';
 
 export type LayerId =
   | typeof RETAIL_STORES_LAYER_ID

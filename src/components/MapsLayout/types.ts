@@ -1,5 +1,6 @@
 import { TilejsonResult, VectorTileLayer } from '@deck.gl/carto';
 import { UIParameters } from '../../context/types';
+import { RefObject } from 'react';
 
 export type RetailStore = {
   cartodb_id: number;
@@ -52,4 +53,6 @@ export type UseMap = () => {
   dataPoint: DataPoint | undefined;
   layers: (VectorTileLayer<Sociodemographic> | VectorTileLayer<RetailStore>)[];
   viewState: ViewState;
+  mapRef: RefObject<HTMLDivElement>;
+  isTooltipVisible: boolean;
 };

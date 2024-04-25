@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getTableData, getTilesetData, getVectorTileLayer } from './utils';
 import { DataPoint, RetailStore, Sociodemographic, UseMap } from './types';
 import { useDataContext } from '../../context/DataProvider';
@@ -39,10 +39,33 @@ export const useMap: UseMap = () => {
       (layer.id === SOCIODEMOGRAPHIC_LAYER_ID && sociodemographics.visible),
   );
 
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutsideTooltip = (event: MouseEvent): void => {
+      if (mapRef.current && !mapRef.current.contains(event.target as Node)) {
+        setIsTooltipVisible(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutsideTooltip);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutsideTooltip);
+    };
+  }, []);
+
   const viewState = {
     ...INITIAL_VIEW_STATE,
     zoom,
   };
 
-  return { layers, viewState, dataPoint };
+  return {
+    layers,
+    viewState,
+    dataPoint,
+    mapRef,
+    isTooltipVisible,
+  };
 };

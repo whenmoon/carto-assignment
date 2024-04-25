@@ -5,6 +5,7 @@ import { LayerVisibilityCheckbox } from '../LayerVisibilityCheckbox';
 import { ColorPicker } from '../ColorPicker';
 import { Slider } from '../Slider';
 import { useDataContext } from '../../context/DataProvider';
+import { RETAIL_STORES_LAYER_ID } from '../../contants';
 
 export const LayerEditor = ({ layers }: LayerEditorProps) => {
   const {
@@ -44,13 +45,15 @@ export const LayerEditor = ({ layers }: LayerEditorProps) => {
               title="Outline Colour"
               updateCallback={updateOutlineColor}
             />
-            <Slider
-              layerId={layer.id}
-              title="Point Size"
-              targetValue="pointRadiusMinPixels"
-              updateCallback={updatePointSize}
-              maxVal={8}
-            />
+            {layer.id === RETAIL_STORES_LAYER_ID && (
+              <Slider
+                layerId={layer.id}
+                title="Point Size"
+                targetValue="pointRadiusMinPixels"
+                updateCallback={updatePointSize}
+                maxVal={8}
+              />
+            )}
           </S.LayerContent>
         </S.LayerEditor>
       ))}

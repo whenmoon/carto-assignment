@@ -1,6 +1,4 @@
-export const getUint8Array = (array: number[]): Uint8Array =>
-  new Uint8Array(array);
-
+import { Action, ReducerState } from './types';
 import {
   TOGGLE_LAYER,
   UPDATE_FILL_COLOR,
@@ -9,8 +7,10 @@ import {
   UPDATE_POINT_SIZE,
   ZOOM_IN,
   ZOOM_OUT,
-} from './DataProvider';
-import { Action, ReducerState } from './types';
+} from '../contants';
+
+export const getUint8Array = (array: number[]): Uint8Array =>
+  new Uint8Array(array);
 
 export const dataReducer = (
   state: ReducerState,

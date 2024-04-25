@@ -16,32 +16,32 @@ import {
 } from './types';
 import { INITIAL_ZOOM_LEVEL } from '../contants';
 import { dataReducer, getUint8Array } from './utils';
+import {
+  TOGGLE_LAYER,
+  UPDATE_FILL_COLOR,
+  UPDATE_OUTLINE_COLOR,
+  UPDATE_OUTLINE_SIZE,
+  UPDATE_POINT_SIZE,
+  ZOOM_IN,
+  ZOOM_OUT,
+} from '../contants';
 
-// Action types
-export const ZOOM_IN = 'ZOOM_IN';
-export const ZOOM_OUT = 'ZOOM_OUT';
-export const TOGGLE_LAYER = 'TOGGLE_LAYER';
-export const UPDATE_FILL_COLOR = 'UPDATE_FILL_COLOR';
-export const UPDATE_OUTLINE_SIZE = 'UPDATE_OUTLINE_SIZE';
-export const UPDATE_OUTLINE_COLOR = 'UPDATE_OUTLINE_COLOR';
-export const UPDATE_POINT_SIZE = 'UPDATE_POINT_SIZE';
-
-export const initialReducerState = {
+const initialReducerState = {
   zoom: INITIAL_ZOOM_LEVEL,
   retailStores: {
     visible: true,
-    layerFillColor: getUint8Array([0, 221, 255]),
-    lineColor: getUint8Array([0, 0, 0, 400]),
+    layerFillColor: getUint8Array([40, 49, 61]),
+    lineColor: getUint8Array([230, 255, 0]),
     focusedColumnFillColor: getUint8Array([242, 255, 0]),
-    lineWidthMinPixels: 2,
-    pointRadiusMinPixels: 3,
+    lineWidthMinPixels: 0.8,
+    pointRadiusMinPixels: 7.7,
   },
   sociodemographics: {
     visible: false,
-    layerFillColor: getUint8Array([255, 0, 217]),
-    lineColor: getUint8Array([0, 0, 0, 400]),
+    layerFillColor: getUint8Array([0, 255, 217]),
+    lineColor: getUint8Array([255, 0, 247]),
     focusedColumnFillColor: getUint8Array([0, 191, 255]),
-    lineWidthMinPixels: 2,
+    lineWidthMinPixels: 0.1,
     pointRadiusMinPixels: 1,
   },
 };

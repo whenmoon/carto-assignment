@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { getTableData, getTilesetData, getVectorTileLayer } from './utils';
 import { HoverData, RetailStore, Sociodemographic } from './types';
-import { v4 as uuidv4 } from 'uuid';
 import { useDataContext } from '../../context/DataProvider';
-import { INITIAL_VIEW_STATE } from '../../contants';
+import {
+  INITIAL_VIEW_STATE,
+  RETAIL_STORES_LAYER_ID,
+  SOCIODEMOGRAPHIC_LAYER_ID,
+} from '../../contants';
 
 export const useMap = () => {
   const [dataPointAttribute, setDataPointAttribute] = useState<HoverData>();
@@ -18,18 +21,38 @@ export const useMap = () => {
 
   const { zoom, retailStoresUI, sociodemographicsUI } = useDataContext();
 
+  const {
+    layerFillColor: retailStoresLayerFillColor,
+    focusedColumnFillColor: retailStoresFocusedColumnFillColor,
+    lineWidthMinPixels: retailStoresLineWidthMinPixels,
+    pointRadiusMinPixels: retailStoresPointRadiusMinPixels,
+  } = retailStoresUI;
+
+  const {
+    layerFillColor: sociodemographicsLayerFillColor,
+    focusedColumnFillColor: sociodemographicsFocusedColumnFillColor,
+    lineWidthMinPixels: sociodemographicsLineWidthMinPixels,
+    pointRadiusMinPixels: sociodemographicsPointRadiusMinPixels,
+  } = sociodemographicsUI;
+
   const layers = [
-    getVectorTileLayer<RetailStore>(
-      tableData,
-      uuidv4(),
-      handleClick,
-      retailStoresUI.fillColor,
-    ),
     getVectorTileLayer<Sociodemographic>(
       tilesetData,
-      uuidv4(),
+      SOCIODEMOGRAPHIC_LAYER_ID,
       handleClick,
-      sociodemographicsUI.fillColor,
+      sociodemographicsLayerFillColor,
+      sociodemographicsFocusedColumnFillColor,
+      sociodemographicsLineWidthMinPixels,
+      sociodemographicsPointRadiusMinPixels,
+    ),
+    getVectorTileLayer<RetailStore>(
+      tableData,
+      RETAIL_STORES_LAYER_ID,
+      handleClick,
+      retailStoresLayerFillColor,
+      retailStoresFocusedColumnFillColor,
+      retailStoresLineWidthMinPixels,
+      retailStoresPointRadiusMinPixels,
     ),
   ];
 

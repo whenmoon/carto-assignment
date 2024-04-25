@@ -9,7 +9,7 @@ import {
   RETAIL_STORES_TABLE,
   SOCIODEMOGRAPHIC_TILESET,
 } from '../../contants';
-import { GetVectorTileLayer } from './types';
+import { GetVectorTileLayer, RetailStore, Sociodemographic } from './types';
 
 const config = {
   accessToken: import.meta.env.VITE_CARTO_API_TOKEN,
@@ -33,21 +33,42 @@ export const getTilesetData = (
     ...config,
   });
 
+const getFillColor = (
+  data: RetailStore | Sociodemographic,
+  layerFillColor: Uint8Array,
+  focusedColumnFillColor: Uint8Array,
+): Uint8Array => {
+  if ('revenue' in data) {
+    return data.revenue > 1500000 ? focusedColumnFillColor : layerFillColor;
+  }
+  if ('total_pop' in data) {
+    return data.total_pop > 1000 ? focusedColumnFillColor : layerFillColor;
+  }
+  return layerFillColor;
+};
+
 export const getVectorTileLayer: GetVectorTileLayer = (
   data,
   id,
   handleClick,
-  fillColor,
+  layerFillColor,
+  focusedColumnFillColor,
+  lineWidthMinPixels,
+  pointRadiusMinPixels,
 ) =>
   new VectorTileLayer({
     data,
-    pointRadiusMinPixels: 1,
+    pointRadiusMinPixels,
     getLineColor: [0, 0, 0, 400],
-    getFillColor: fillColor,
-    lineWidthMinPixels: 1,
+    getFillColor: (data) =>
+      getFillColor(data.properties, layerFillColor, focusedColumnFillColor),
+    lineWidthMinPixels,
     id,
     pickable: true,
     onClick: (data) => {
       handleClick(data.object.properties);
+    },
+    updateTriggers: {
+      getFillColor: [layerFillColor, focusedColumnFillColor],
     },
   });

@@ -1,3 +1,5 @@
+import { ZOOM_IN, ZOOM_OUT } from '../contants';
+
 export type UpdateZoom = (value: number) => void;
 
 export type ReducerState = {
@@ -16,7 +18,8 @@ export type Action =
   | { type: typeof ZOOM_OUT; value: number };
 
 export type UIParameters = {
-  fillColor: Uint8Array;
+  layerFillColor: Uint8Array;
+  focusedColumnFillColor: Uint8Array;
   lineColor: Uint8Array;
   pointRadiusMinPixels: number;
   lineWidthMinPixels: number;

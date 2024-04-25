@@ -6,33 +6,16 @@ export const RETAIL_STORES_TABLE = 'carto-demo-data.demo_tables.retail_stores';
 export const SOCIODEMOGRAPHIC_TILESET =
   'carto-demo-data.demo_tilesets.sociodemographics_usa_blockgroup';
 
+export const RETAIL_STORES_LAYER_ID = 'retail_stores';
+export const RETAIL_STORES_FOCUSED_COLUMN = 'revenue';
+export const SOCIODEMOGRAPHIC_LAYER_ID = 'sociodemographics';
+export const SOCIODEMOGRAPHIC_FOCUSED_COLUMN = 'total_pop';
+
 export const INITIAL_ZOOM_LEVEL = 3;
 
 export const INITIAL_VIEW_STATE = {
   latitude: 40.690362,
   longitude: -97.011084,
-};
-
-export const initialReducerState = {
-  zoom: INITIAL_ZOOM_LEVEL,
-  retailStoresUI: {
-    fillColor: new Uint8Array([235, 52, 189, 50]),
-    pointRadiusMinPixels: 1,
-    lineColor: new Uint8Array([0, 0, 0, 400]),
-    lineWidthMinPixels: 1,
-  },
-  sociodemographicsUI: {
-    fillColor: new Uint8Array([235, 52, 189, 50]),
-    pointRadiusMinPixels: 1,
-    lineColor: new Uint8Array([0, 0, 0, 400]),
-    lineWidthMinPixels: 1,
-  },
-};
-
-export const initialState = {
-  ...initialReducerState,
-  zoomIn: () => { },
-  zoomOut: () => { },
 };
 
 export const ZOOM_IN = 'ZOOM_IN';

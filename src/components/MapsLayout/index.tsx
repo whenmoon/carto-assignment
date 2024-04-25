@@ -6,7 +6,6 @@ import { useMap } from './hooks';
 
 export const MapsLayout = () => {
   const { layers, viewState } = useMap();
-  console.log(viewState);
 
   return (
     <S.MapsContainer>

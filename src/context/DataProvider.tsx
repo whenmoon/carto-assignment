@@ -6,12 +6,31 @@ import {
   useReducer,
 } from 'react';
 import { Action, InitialState, ReducerState, UpdateZoom } from './types';
-import {
-  ZOOM_IN,
-  ZOOM_OUT,
-  initialReducerState,
-  initialState,
-} from '../contants';
+import { INITIAL_ZOOM_LEVEL, ZOOM_IN, ZOOM_OUT } from '../contants';
+
+export const initialReducerState = {
+  zoom: INITIAL_ZOOM_LEVEL,
+  retailStoresUI: {
+    layerFillColor: new Uint8Array([0, 221, 255]),
+    focusedColumnFillColor: new Uint8Array([242, 255, 0]),
+    pointRadiusMinPixels: 1,
+    lineColor: new Uint8Array([0, 0, 0, 400]),
+    lineWidthMinPixels: 1,
+  },
+  sociodemographicsUI: {
+    layerFillColor: new Uint8Array([255, 0, 217]),
+    focusedColumnFillColor: new Uint8Array([0, 191, 255]),
+    pointRadiusMinPixels: 1,
+    lineColor: new Uint8Array([0, 0, 0, 400]),
+    lineWidthMinPixels: 1,
+  },
+};
+
+export const initialState = {
+  ...initialReducerState,
+  zoomIn: () => { },
+  zoomOut: () => { },
+};
 
 const DataContext = createContext<InitialState>(initialState);
 

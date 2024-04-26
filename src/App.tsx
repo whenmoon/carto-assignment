@@ -4,7 +4,6 @@ import { DataProvider } from './context/DataProvider';
 import { theme } from './theme';
 
 export const App = () => {
-
   return (
     <ThemeProvider theme={theme}>
       <DataProvider>

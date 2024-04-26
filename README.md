@@ -2,6 +2,13 @@
 # Tom Belton Carto Assignment
 Carto assignment using deck.gl and the Carto module
 ## Screenshots:
+<img width="1678" alt="Screenshot 2024-04-26 at 13 41 46" src="https://github.com/whenmoon/carto-assignment/assets/33122888/aa0c9104-4978-4d6a-b49d-c524cf68b3d8">
+
+<img width="1679" alt="Screenshot 2024-04-26 at 13 38 57" src="https://github.com/whenmoon/carto-assignment/assets/33122888/6758819e-801d-4d53-9af6-c952b07c93bf">
+
+<img width="1678" alt="Screenshot 2024-04-26 at 13 36 34" src="https://github.com/whenmoon/carto-assignment/assets/33122888/4b237eae-c877-4ef7-b7c8-5ce382c47d8b">
+
+<img width="1680" alt="Screenshot 2024-04-26 at 13 28 32" src="https://github.com/whenmoon/carto-assignment/assets/33122888/f806885e-253f-486f-afb2-1b49db192361">
 
 ## Public app:
 The publicly available app is running on Netlify [here](https://main--compassionate-leavitt-917108.netlify.app/).

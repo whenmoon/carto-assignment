@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d15bf119-2bcb-45df-abeb-166c5b6e9a65/deploy-status)](https://app.netlify.com/sites/compassionate-leavitt-917108/deploys)
 # Tom Belton Carto Assignment
 Carto assignment using deck.gl and the Carto module
 ## Screenshots:

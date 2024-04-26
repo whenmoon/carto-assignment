@@ -14,6 +14,7 @@ export const ColorPicker = ({
     const color = getUint8Array([value.r, value.g, value.b]);
     updateCallback(color, layerId);
   };
+
   return (
     <>
       <S.ItemTitle>{title}</S.ItemTitle>

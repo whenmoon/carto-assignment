@@ -45,6 +45,7 @@ export const LayerEditor = ({ layers }: LayerEditorProps) => {
               title="Outline Colour"
               updateCallback={updateOutlineColor}
             />
+            {/*  Point size does not see to update tileset visualisations */}
             {layer.id === RETAIL_STORES_LAYER_ID && (
               <Slider
                 layerId={layer.id}

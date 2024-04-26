@@ -1,5 +1,4 @@
-import { Checkbox } from '@mui/material';
-import styled from 'styled-components';
+import { Checkbox, styled } from '@mui/material';
 
 export const CheckboxContainer = styled('div')`
   display: flex;
@@ -9,6 +8,9 @@ export const CheckboxContainer = styled('div')`
 
 export const LayerToggleCheckbox = styled(Checkbox)`
   max-width: 30px;
+  .MuiSvgIcon-root {
+    font-size: 15px;
+  }
 `;
 
 export const ItemTitle = styled('h4')`

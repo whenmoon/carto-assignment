@@ -8,6 +8,7 @@ export const Slider = ({
   targetValue,
   updateCallback,
   maxVal,
+  ...restProps
 }: SliderProps) => {
   const uiState = useDataContext();
 
@@ -29,6 +30,7 @@ export const Slider = ({
         valueLabelDisplay="auto"
         step={0.1}
         value={uiState[layerId][targetValue]}
+        {...restProps}
       />
     </>
   );

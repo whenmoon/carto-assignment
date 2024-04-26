@@ -2,12 +2,6 @@ import { Drawer as MUIDrawer, styled } from '@mui/material';
 import { Button } from '../Button';
 
 export const DrawerContent = styled('div')`
-  display: flex;
-  flex-direction: column;
-  /*justify-content: center;
-  align-items: center;*/
-  /*border: 1px solid #000;*/
-  height: 100%;
   padding: 10px;
 `;
 
@@ -25,6 +19,6 @@ export const ToggleButton = styled(Button)`
   bottom: 0;
   left: 0;
   margin: 20px;
-  align-self: flex-end;
-  z-index: 10000;
+  z-index: 1;
+  width: 120px;
 `;

@@ -17,6 +17,7 @@ The publicly available app is running on Netlify [here](https://main--compassion
   - Layer visibility toggle
   - Color pickers for layer fill and outline colors
   - Point and outline size controllers (if available for layer)
+- Tootltip
 - Togglable editor
 - Programmatic map zoom
 ## Instructions:

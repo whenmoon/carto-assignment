@@ -18,7 +18,7 @@ export const TooltipContentColumn = styled('div')`
 `;
 
 export const TooltipContentItem = styled('div')`
-  font-size: 10px;
+  font-size: 15px;
   font-family: 'Courier New', Courier, monospace;
   text-transform: capitalize;
   color: #fff;

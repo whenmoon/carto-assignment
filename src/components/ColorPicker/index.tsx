@@ -1,8 +1,9 @@
 import { ColorPickerChangeEvent } from 'primereact/colorpicker';
-import * as S from './styles';
 import { ColorPickerProps } from './types';
 import { ColorPicker as PrimeReactColorPicker } from 'primereact/colorpicker';
 import { getUint8Array } from '../../context/utils';
+import { ItemTitle } from '../EditorItemTitle';
+import * as S from './styles';
 
 export const ColorPicker = ({
   layerId,
@@ -16,9 +17,9 @@ export const ColorPicker = ({
   };
 
   return (
-    <>
-      <S.ItemTitle>{title}</S.ItemTitle>
+    <S.ColorPickerContainer>
+      <ItemTitle>{title}</ItemTitle>
       <PrimeReactColorPicker inline format="rgb" onChange={handleChange} />
-    </>
+    </S.ColorPickerContainer>
   );
 };

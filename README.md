@@ -11,7 +11,7 @@ Carto assignment using deck.gl and the Carto module
 <img width="1678" alt="Screenshot 2024-04-26 at 13 41 46" src="https://github.com/whenmoon/carto-assignment/assets/33122888/aa0c9104-4978-4d6a-b49d-c524cf68b3d8">
 
 ## Public app:
-The publicly available app is running on Netlify [here](https://main--compassionate-leavitt-917108.netlify.app/).
+The publicly available app is running on Netlify (here)[https://main--compassionate-leavitt-917108.netlify.app/].
 ## App features:
 - Layer editor:
   - Layer visibility toggle

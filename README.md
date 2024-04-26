@@ -20,6 +20,7 @@ The publicly available app is running on Netlify [here](https://main--compassion
 - Tootltip
 - Togglable editor
 - Programmatic map zoom
+- For the Retail Stores layer, stores with a revenue of over 1500000 are highlighted in bright yellow. For the Sociodemographics layer, areas with a population of over 1000 are highlighted in light blue.
 ## Instructions:
 The app utilizes a Sidebar component which serves as the controller for the variable UI parameters. Toggle the button on the bottom left of the screen to open and close the Sidebar. Each layer is can be shown or hidden independently and has its own set of expandable controls inside the Sidebar.
 ## Runing the app locally:

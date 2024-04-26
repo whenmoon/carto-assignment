@@ -3,6 +3,7 @@ import { UIParameters } from '../../context/types';
 import { RefObject } from 'react';
 
 export type RetailStore = {
+  layerName?: string;
   cartodb_id: number;
   storetype: string;
   address: string;
@@ -15,6 +16,7 @@ export type RetailStore = {
 };
 
 export type Sociodemographic = {
+  layerName?: string;
   total_pop: number;
   households: number;
   median_income: number;

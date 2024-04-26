@@ -20,6 +20,8 @@ export const useMap: UseMap = () => {
   const tilesetData = getTilesetData();
 
   const handleDataPointClick = (data: NodeAttributes): void => {
+    const removeItem = 'layerName';
+    delete data.properties[removeItem];
     setNodeData({ isTooltipVisible: true, nodeAttributes: data });
   };
 

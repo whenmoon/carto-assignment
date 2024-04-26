@@ -11,7 +11,7 @@ Carto assignment using deck.gl and the Carto module
 <img width="1678" alt="Screenshot 2024-04-26 at 13 41 46" src="https://github.com/whenmoon/carto-assignment/assets/33122888/aa0c9104-4978-4d6a-b49d-c524cf68b3d8">
 
 ## Public app:
-The publicly available app is running on Netlify (here)[https://main--compassionate-leavitt-917108.netlify.app/].
+The publicly available app is running on Netlify [here](https://main--compassionate-leavitt-917108.netlify.app/).
 ## App features:
 - Layer editor:
   - Layer visibility toggle
@@ -26,7 +26,7 @@ The app utilizes a Sidebar component which serves as the controller for the vari
 ## Runing the app locally:
 - Clone the Gihub repository
 - In the terminal change directory to the repository
-- Create a Carto account and create API key credentials (here)[https://pinea.app.carto.com/developers/credentials]
+- Create a Carto account and create API key credentials [here](https://pinea.app.carto.com/developers/credentials)
 - In the root of the repository create a file named `.env.development` and add variables named `VITE_CARTO_API_TOKEN` and `VITE_API_BASE_URL`. Paste the values obtained from Carto
 - In the terminal run `npm i && npm run dev`
 - Using a browser, navigate to `http://localhost:5173/` and the app should be running.

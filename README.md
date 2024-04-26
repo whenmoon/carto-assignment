@@ -22,7 +22,15 @@ The publicly available app is running on Netlify [here](https://main--compassion
 - Programmatic map zoom
 ## Instructions:
 The app utilizes a Sidebar component which serves as the controller for the variable UI parameters. Toggle the button on the bottom left of the screen to open and close the Sidebar. Each layer is can be shown or hidden independently and has its own set of expandable controls inside the Sidebar.
+## Runing the app locally:
+- Clone the Gihub repository
+- In the terminal change directory to the repository
+- Create a Carto account and create API key credentials (here)[https://pinea.app.carto.com/developers/credentials]
+- In the root of the repository create a file named `.env.development` and add variables named `VITE_CARTO_API_TOKEN` and `VITE_API_BASE_URL`. Paste the values obtained from Carto
+- In the terminal run `npm i && npm run dev`
+- Using a browser, navigate to `http://localhost:5173/` and the app should be running.
 ## Areas for improvement:
+- Add test coverage
 - There is currently a bug whereby changes to the zoom level made by the user (using the mouse scroll wheel, for example, or double-clicking on the map) are not reflected in the state of the application. This is visible when using one of these methods and then the zoom buttons in the bottom left of the UI. An improvement should be that all zoom state is maintained as a single source of truth.
 - I would like to redesign the structure of the state in the application. Ideally, it is more granular and made scalable with dynamic keys for layer-related properties.
 - Tooltip performance seems to be an issue that should be investigated and improved.

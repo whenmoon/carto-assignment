@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { getTableData, getTilesetData, getVectorTileLayer } from './utils';
-import { DataPoint, RetailStore, Sociodemographic, UseMap } from './types';
+import { NodeAttributes, RetailStore, Sociodemographic, UseMap } from './types';
 import { useDataContext } from '../../context/DataProvider';
 import {
   INITIAL_VIEW_STATE,
@@ -9,13 +9,18 @@ import {
 } from '../../contants';
 
 export const useMap: UseMap = () => {
-  const [dataPoint, setDataPoint] = useState<DataPoint>();
+  const [nodeData, setNodeData] = useState<{
+    nodeAttributes?: NodeAttributes;
+    isTooltipVisible: boolean;
+  }>({
+    nodeAttributes: undefined,
+    isTooltipVisible: true,
+  });
   const tableData = getTableData();
   const tilesetData = getTilesetData();
 
-  const handleClick = (data: DataPoint): void => {
-    console.log('data', data);
-    setDataPoint(data);
+  const handleDataPointClick = (data: NodeAttributes): void => {
+    setNodeData({ isTooltipVisible: true, nodeAttributes: data });
   };
 
   const { zoom, retailStores, sociodemographics } = useDataContext();
@@ -24,13 +29,13 @@ export const useMap: UseMap = () => {
     getVectorTileLayer<Sociodemographic>({
       data: tilesetData,
       id: SOCIODEMOGRAPHIC_LAYER_ID,
-      handleClick,
+      handleDataPointClick,
       ...sociodemographics,
     }),
     getVectorTileLayer<RetailStore>({
       data: tableData,
       id: RETAIL_STORES_LAYER_ID,
-      handleClick,
+      handleDataPointClick,
       ...retailStores,
     }),
   ].filter(
@@ -39,14 +44,12 @@ export const useMap: UseMap = () => {
       (layer.id === SOCIODEMOGRAPHIC_LAYER_ID && sociodemographics.visible),
   );
 
-  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutsideTooltip = (event: MouseEvent): void => {
       if (mapRef.current && !mapRef.current.contains(event.target as Node)) {
-        setIsTooltipVisible(false);
+        setNodeData({ isTooltipVisible: false, nodeAttributes: undefined });
       }
     };
 
@@ -61,10 +64,12 @@ export const useMap: UseMap = () => {
     zoom,
   };
 
+  const { nodeAttributes, isTooltipVisible } = nodeData;
+
   return {
     layers,
     viewState,
-    dataPoint,
+    nodeAttributes,
     mapRef,
     isTooltipVisible,
   };

@@ -1,10 +1,10 @@
 import { TooltipProps } from './types';
 import * as S from './styles';
 
-export const Tooltip = ({ dataPoint }: TooltipProps) => {
-  const { properties } = dataPoint;
+export const Tooltip = ({ nodeAttributes }: TooltipProps) => {
+  const { properties, x, y } = nodeAttributes;
   return (
-    <S.TooltipContainer x={dataPoint.x} y={dataPoint.y}>
+    <S.TooltipContainer x={x} y={y}>
       {Object.entries(properties).map(([key, value]) => (
         <S.TooltipContentColumn key={key}>
           <S.TooltipContentItem>{key}</S.TooltipContentItem>

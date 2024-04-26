@@ -1,5 +1,5 @@
-import { DataPoint } from '../MapsLayout/types';
+import { NodeAttributes } from '../MapsLayout/types';
 
 export type TooltipProps = {
-  dataPoint: DataPoint;
+  nodeAttributes: NodeAttributes;
 };

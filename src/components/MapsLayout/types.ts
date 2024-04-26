@@ -21,7 +21,7 @@ export type Sociodemographic = {
   income_per_capita: number;
 };
 
-export type DataPoint = {
+export type NodeAttributes = {
   x: number;
   y: number;
   properties: RetailStore | Sociodemographic;
@@ -33,7 +33,7 @@ export type GetVectorTileLayer = <T extends RetailStore | Sociodemographic>(
   args: Omit<UIParameters, 'visible'> & {
     data: Promise<TilejsonResult>;
     id: string;
-    handleClick: (data: DataPoint) => void;
+    handleDataPointClick: (data: NodeAttributes) => void;
     getFillColor?: GetFillColor<T>;
   },
 ) => VectorTileLayer<T>;
@@ -50,7 +50,7 @@ type ViewState = {
 };
 
 export type UseMap = () => {
-  dataPoint: DataPoint | undefined;
+  nodeAttributes?: NodeAttributes;
   layers: (VectorTileLayer<Sociodemographic> | VectorTileLayer<RetailStore>)[];
   viewState: ViewState;
   mapRef: RefObject<HTMLDivElement>;

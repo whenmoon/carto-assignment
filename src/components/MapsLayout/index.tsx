@@ -7,15 +7,16 @@ import { ZoomControls } from '../ZoomControls';
 import { Tooltip } from '../Tooltip';
 
 export const MapsLayout = () => {
-  const { layers, viewState, dataPoint, mapRef, isTooltipVisible } = useMap();
+  const { layers, viewState, nodeAttributes, mapRef, isTooltipVisible } =
+    useMap();
 
   return (
     <S.MapsContainer>
       <DeckGL layers={layers} initialViewState={viewState} controller>
         <Map mapStyle={BASEMAP.DARK_MATTER} minZoom={0} maxZoom={10} />
-        {isTooltipVisible && dataPoint && (
+        {isTooltipVisible && nodeAttributes && (
           <div ref={mapRef}>
-            <Tooltip dataPoint={dataPoint} />
+            <Tooltip nodeAttributes={nodeAttributes} />
           </div>
         )}
         <ZoomControls />

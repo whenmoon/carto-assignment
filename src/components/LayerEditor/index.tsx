@@ -38,7 +38,7 @@ export const LayerEditor = ({ layers }: LayerEditorProps) => {
               title="Outline Size"
               targetValue="lineWidthMinPixels"
               updateCallback={updateOutineSize}
-              maxVal={4}
+              maxVal={6}
             />
             <ColorPicker
               layerId={layer.id}
@@ -52,7 +52,7 @@ export const LayerEditor = ({ layers }: LayerEditorProps) => {
                 title="Point Size"
                 targetValue="pointRadiusMinPixels"
                 updateCallback={updatePointSize}
-                maxVal={8}
+                maxVal={12}
               />
             )}
           </S.LayerContent>

@@ -5,6 +5,6 @@ export const Button = styled(MUIButton)`
 `;
 
 export const ButtonText = styled('span')`
-  font-size: 14px;
+  font-size: 20px;
   color: #ff00a2;
 `;

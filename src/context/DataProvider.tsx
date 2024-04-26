@@ -33,15 +33,15 @@ const initialReducerState = {
     layerFillColor: getUint8Array([40, 49, 61]),
     lineColor: getUint8Array([230, 255, 0]),
     focusedColumnFillColor: getUint8Array([242, 255, 0]),
-    lineWidthMinPixels: 0.8,
-    pointRadiusMinPixels: 7.7,
+    lineWidthMinPixels: 1.5,
+    pointRadiusMinPixels: 10,
   },
   sociodemographics: {
     visible: false,
     layerFillColor: getUint8Array([0, 255, 217]),
     lineColor: getUint8Array([255, 0, 247]),
     focusedColumnFillColor: getUint8Array([0, 191, 255]),
-    lineWidthMinPixels: 0.1,
+    lineWidthMinPixels: 0.4,
     pointRadiusMinPixels: 1,
   },
 };

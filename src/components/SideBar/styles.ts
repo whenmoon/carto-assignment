@@ -8,7 +8,7 @@ export const DrawerContent = styled('div')`
 export const Drawer = styled(MUIDrawer)`
   .MuiDrawer-paper {
     border-radius: 8px;
-    width: 300px;
+    width: 350px;
     height: 90%;
     background-color: rgba(212, 254, 255, 0.2);
   }
@@ -20,5 +20,5 @@ export const ToggleButton = styled(Button)`
   left: 0;
   margin: 20px;
   z-index: 1;
-  width: 120px;
+  width: 150px;
 `;

@@ -9,7 +9,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: '"Nunito", Arial, sans-serif',
-          fontSize: 14,
+          fontSize: 20,
         },
       },
     },

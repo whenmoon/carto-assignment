@@ -14,5 +14,5 @@ export const LayerTitle = styled(AccordionSummary)`
 `;
 
 export const LayerContent = styled(AccordionDetails)`
-  padding: 0 0 0 10px;
+  padding: 0 0 0 30px;
 `;

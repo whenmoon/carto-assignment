@@ -1,4 +1,5 @@
 import { useDataContext } from '../../context/DataProvider';
+import { ItemTitle } from '../EditorItemTitle';
 import * as S from './styles';
 import { SliderProps } from './types';
 
@@ -20,7 +21,7 @@ export const Slider = ({
 
   return (
     <>
-      <S.ItemTitle>{title}</S.ItemTitle>
+      <ItemTitle>{title}</ItemTitle>
       <S.Slider
         aria-label="Slider"
         onChange={handleChange}

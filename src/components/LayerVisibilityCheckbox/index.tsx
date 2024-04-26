@@ -20,7 +20,7 @@ export const LayerVisibilityCheckbox = ({
         onClick={handleClick}
         {...restProps}
       />
-      <S.ItemTitle>Toggle layer visibility</S.ItemTitle>
+      <S.Title>Toggle layer visibility</S.Title>
     </S.CheckboxContainer>
   );
 };

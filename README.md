@@ -17,8 +17,8 @@ The publicly available app is running on Netlify [here](https://main--compassion
   - Layer visibility toggle
   - Color pickers for layer fill and outline colors
   - Point and outline size controllers (if available for layer)
-  - Togglable editor
-  - Programmatic map zoom
+- Togglable editor
+- Programmatic map zoom
 ## Instructions:
 The app utilizes a Sidebar component which serves as the controller for the variable UI parameters. Toggle the button on the bottom left of the screen to open and close the Sidebar. Each layer is toggleable and has its own set of expandable controls inside the Sidebar.
 ## Areas for improvement:
